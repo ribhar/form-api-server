@@ -13,4 +13,8 @@ const submitForm = (req, res) => {
   res.status(201).json({ message: 'Form submitted successfully.', entry: newEntry });
 };
 
-module.exports = { submitForm, formDataStore };
+const getAllData = (req, res) => {
+  res.status(200).json({ data: formDataStore });
+};
+
+module.exports = { submitForm, getAllData, formDataStore };
