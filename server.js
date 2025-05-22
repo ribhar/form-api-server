@@ -3,6 +3,8 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 const path = require('path');
 
+const formRoutes = require('./routes/formRoutes');
+
 // Load env file based on NODE_ENV
 dotenv.config({ path: path.resolve(process.cwd(), `.env.${process.env.NODE_ENV || 'development'}`) });
 
@@ -27,7 +29,7 @@ app.use(cors(corsOptions));
 app.use(express.json());
 
 // Routes
-// app.use('/api', require('./routes/formRoutes'));
+app.use('/api', formRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT} in ${process.env.NODE_ENV} mode`);
